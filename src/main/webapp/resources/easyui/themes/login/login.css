@@ -1,0 +1,100 @@
+@CHARSET "UTF-8";
+body{
+	background-color:#F8F8FF;
+	font-family: Arial,Helvetica,sans-serif,SimSun;
+	font-size:25px;
+	color:white;
+    text-align:center;
+}
+
+.logo{
+	height:150px;
+	background:url("images/header.png") no-repeat center;
+}
+
+.formBackground{
+	height:300px;
+    background:url("images/formBack.png") no-repeat center;	
+}
+
+.header{
+	position:absolute;
+	left:60%;
+	top:35%;
+
+	border-radius:5px;
+	margin:0px auto;
+	padding:0px;
+	width:400px;
+	height:200px;
+    border:solid 1px #95b8e7;
+    //background-color:#F4F4F4;
+}
+.labelNotice{
+    border-bottom:solid 1px #95b8e7;
+    //background-color:#e6f0ff;
+    height:30px;
+}
+.inputNotice{
+	width:150px;
+	margin:10px 0 0 0;
+	padding:0px;
+	float:left;
+	text-align:right;
+}
+
+#label1{
+    margin:10px 0 0 0;
+	padding:0px;
+	display:block;
+}
+
+#label2{
+	margin:0px;
+	padding:0px;
+    display:block;
+}
+
+.inputMessage{
+	width:250px;
+	margin:5px 0 0 0;
+    padding:0px;
+    float:right;
+    text-align:left;
+}
+
+.inputMessage input{
+    font-size:20px;
+    color:black;
+	width:200px;
+	height:25px;
+	border:solid 1px #95b8e7;
+	margin:15px 0 0 0;
+	padding:0px;
+}
+
+#password{
+	margin:30px 0 0 0;
+}
+
+.loginNotice{
+	clear:both;
+}
+
+#decide{
+	background-color: transparent;
+	margin:25px 0 0 0;
+    font-size:20px;
+    color:white;
+	width:90px;
+	height:30px;
+	border:solid 1px #95b8e7;
+	border-radius:5px;
+}
+
+.copyRight{
+	margin:50px 0 0 0;;
+	padding:0px;
+	color:black;
+	font-size:15px;
+}
