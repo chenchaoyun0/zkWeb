@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/easyui/themes/changePwd/ChangePwd.css">
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/zk.js"></script>
-<title>数通天下-Zookeeper 管理系统</title>
+<title>Zookeeper 管理系统</title>
 
 </head>
 
@@ -40,7 +40,7 @@
     <div data-options="region:'north',border:false" style="height:200px">
     
         <center>
-        <table class="easyui-datagrid" title="数通天下Zookeeper管理系统" id="zkweb_zkcfg"
+        <table class="easyui-datagrid" title="Zookeeper管理系统" id="zkweb_zkcfg"
                data-options="pagination:true,singleSelect:true,fitColumns:true,rownumbers:true,pageSize:5" toolbar="#zkweb_tb" >  
             <thead>  
                 <tr>  

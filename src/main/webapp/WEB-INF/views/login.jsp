@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/easyui/themes/login/login.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/jquery-1.8.3.min.js"></script>
 
-<title>数通天下-Zookeeper</title>
+<title>Zookeeper</title>
 </head>
 <script type="text/javascript">
 var msgdsq;
@@ -102,7 +102,7 @@ function login(){
 		</form>
 	</div>
 	
-	<div class = "copyRight">©2016 数通天下科技有限公司 版权所有
+	<div class = "copyRight">©2016 www.ccy123.cn
 	</div>
 </body>
 </html>
