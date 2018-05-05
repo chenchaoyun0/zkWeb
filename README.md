@@ -1,4 +1,4 @@
-test gitHub syn1;test jenkins build 
+test gitHub syn1;test jenkins build
 
               zookeeper web管理系统
               
