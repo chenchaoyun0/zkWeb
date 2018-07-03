@@ -8,4 +8,4 @@ test gitHub syn1;test jenkins build
 
 ·数据库初始化脚本位于doc/zook.sql
 
-·有空再写~~~
+·有空再写~~
