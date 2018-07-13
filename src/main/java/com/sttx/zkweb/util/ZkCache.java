@@ -59,7 +59,7 @@ public class ZkCache {
             }
             // Thread checkingThread = new Thread(new CheckingTask());
             // checkingThread.start();
-        } catch (ZkException e) {
+        } catch (Exception e) {
             log.error("init -", e.getMessage(), e);
         }
     }

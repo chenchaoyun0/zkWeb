@@ -22,7 +22,6 @@ import org.springframework.util.StringUtils;
 import com.sttx.zkweb.model.AclData;
 import com.sttx.zkweb.model.ZkNodeData;
 import com.sttx.zkweb.util.Const;
-import com.sttx.zkweb.util.ZkException;
 
 public class ZkManagerImpl {
     private final String ROOT = "/";
@@ -77,7 +76,7 @@ public class ZkManagerImpl {
         return new ArrayList<String>();
     }
 
-    public ZkNodeData getData(String path) throws ZkException {
+    public ZkNodeData getData(String path) throws Exception {
         logger.info("getData zookeeper :{}", path);
         ZkNodeData zkNodeData = new ZkNodeData();
         try {
@@ -100,7 +99,7 @@ public class ZkManagerImpl {
             }
         } catch (NoAuthException e) {
             logger.error("访问节点数据异常", e.getMessage(), e);
-            throw new ZkException("你没有权限访问该节点数据，请联系管理员获得用户与密码");
+            throw new Exception("你没有权限访问该节点数据，请联系管理员获得用户与密码");
         } catch (Exception e) {
             logger.error("访问节点数据异常", e.getMessage(), e);
             throw new RuntimeException("其他异常", e);
@@ -204,7 +203,7 @@ public class ZkManagerImpl {
     }
 
     public boolean createNodeOfScheme(String path, String nodeName, String data, String scheme, String nodeUser,
-            String nodePassword, int[] perms, String cacheId) throws ZkException {
+            String nodePassword, int[] perms, String cacheId) throws Exception {
         try {
             /**
              * 判断scheme类型
@@ -240,7 +239,7 @@ public class ZkManagerImpl {
         } catch (Exception e) {
             if (e instanceof NoAuthException) {// 没有权限读取该数据
                 logger.error("NoAuthException", e.getMessage(), e);
-                throw new ZkException("你没有权限访问该节点数据，请联系管理员获得用户与密码");
+                throw new Exception("你没有权限访问该节点数据，请联系管理员获得用户与密码");
             }
         }
         return false;
@@ -299,7 +298,7 @@ public class ZkManagerImpl {
     }
 
     public void addNodeAcl(String path, String scheme, String adminName, String adminPwd, String nodeUser,
-            String nodePassword, String cacheId, int[] perms) throws ZkException {
+            String nodePassword, String cacheId, int[] perms) throws Exception {
         try {
             Stat s = client.checkExists().forPath(path);
             List<ACL> acls = new ArrayList<ACL>();
@@ -323,7 +322,7 @@ public class ZkManagerImpl {
             logger.info("addNodeAcl---{}" + stataddAcl);
         } catch (NoAuthException e) {
             logger.error("添加用户acl异常，请检查admin用户及密码 :{}", e.getMessage(), e);
-            throw new ZkException("添加用户acl异常，请检查admin用户及密码");
+            throw new Exception("添加用户acl异常，请检查admin用户及密码");
         } catch (Exception e) {
             logger.error("addNodeAcl error:{}", e.getMessage(), e);
             throw new RuntimeException("addNodeAcl error", e);

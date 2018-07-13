@@ -57,8 +57,8 @@
             <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="javascript:$('#zkweb_add_cfg').window('open');removeAllCheck();">添加</a>    
             <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true" onclick="openUpdateWin()">更新</a>    
             <a href="#" class="easyui-linkbutton" iconCls="icon-no" plain="true" onclick="openDelWin()">删除</a>      
-            <a href="#" class="easyui-linkbutton" id = "changePwd" iconCls="icon-edit" plain="true">修改登录密码</a>      
-            <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" plain="true" onclick="exitLogin()">退出登陆</a>    
+            <!-- <a href="#" class="easyui-linkbutton" id = "changePwd" iconCls="icon-edit" plain="true">修改登录密码</a>      
+            <a href="#" class="easyui-linkbutton" iconCls="icon-cancel" plain="true" onclick="exitLogin()">退出登陆</a> -->    
         </div>
         </center>
                 

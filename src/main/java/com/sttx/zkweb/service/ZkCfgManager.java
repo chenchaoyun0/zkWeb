@@ -3,7 +3,6 @@ package com.sttx.zkweb.service;
 import java.util.List;
 
 import com.sttx.zkweb.model.ZkConfig;
-import com.sttx.zkweb.util.ZkException;
 
 /**
  * 
@@ -13,23 +12,6 @@ import com.sttx.zkweb.util.ZkException;
  * @date: 2016年8月21日 下午2:33:27
  */
 public interface ZkCfgManager {
-    /**
-     * 
-     * @Title: init
-     * @Description: 初始化数据库表结构
-     * @throws ZkException
-     * @return: void
-     */
-    public void init() throws ZkException;
-
-    /**
-     * 
-     * @Title: dropTable
-     * @Description: 删除表
-     * @throws ZkException
-     * @return: void
-     */
-    public void dropTable() throws ZkException;
 
     /**
      * 
@@ -37,20 +19,20 @@ public interface ZkCfgManager {
      * @Description: 添加一个zookeeper配置
      * @param zkConfig
      *            zookeeper配置对象
-     * @throws ZkException
+     * @throws Exception
      * @return: void
      */
-    public void add(ZkConfig zkConfig) throws ZkException;
+    public void add(ZkConfig zkConfig) throws Exception;
 
     /**
      * 
      * @Title: query
      * @Description: 查询zookeeper配置列表，暂未调用，调用的是以下分页方法
      * @return
-     * @throws ZkException
+     * @throws Exception
      * @return: List<ZkConfig>
      */
-    public List<ZkConfig> query() throws ZkException;
+    public List<ZkConfig> query() throws Exception;
 
     /**
      * 
@@ -59,30 +41,30 @@ public interface ZkCfgManager {
      * @param page
      * @param rows
      * @return
-     * @throws ZkException
+     * @throws Exception
      * @return: List<ZkConfig>
      */
-    public List<ZkConfig> query(int page, int rows) throws ZkException;
+    public List<ZkConfig> query(int page, int rows) throws Exception;
 
     /**
      * 
      * @Title: update
      * @Description: 更新zookeeper配置信息
      * @param zkConfig
-     * @throws ZkException
+     * @throws Exception
      * @return: void
      */
-    public void update(ZkConfig zkConfig) throws ZkException;
+    public void update(ZkConfig zkConfig) throws Exception;
 
     /**
      * 
      * @Title: delete
      * @Description: 根据zkId删除该配置
      * @param zkId
-     * @throws ZkException
+     * @throws Exception
      * @return: void
      */
-    public void delete(String zkId) throws ZkException;
+    public void delete(String zkId) throws Exception;
 
     /**
      * 
@@ -90,20 +72,20 @@ public interface ZkCfgManager {
      * @Description: zkId查找
      * @param zkId
      * @return
-     * @throws ZkException
+     * @throws Exception
      * @return: ZkConfig
      */
-    public ZkConfig findById(String zkId) throws ZkException;
+    public ZkConfig findById(String zkId) throws Exception;
 
     /**
      * 
      * @Title: count
      * @Description: 配置数量
      * @return
-     * @throws ZkException
+     * @throws Exception
      * @return: int
      */
-    public int count() throws ZkException;
+    public int count() throws Exception;
 
     /* 初始化数据库表 */
     static String initSql = "CREATE TABLE IF NOT EXISTS T_ZKCONFIG(ZKID VARCHAR(200) PRIMARY KEY, ZKDESCRIPTION VARCHAR(100), ZKCONNECTSTR VARCHAR(100), ZKSESSIONTIMEOUT VARCHAR(100),ZKUSERNAME VARCHAR(100),ZKUSERPWD VARCHAR(200))";

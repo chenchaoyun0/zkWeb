@@ -1,4 +1,4 @@
-package com.sttx.zkweb.admin.web;
+package com.sttx.zkweb.web;
 
 import java.util.Locale;
 
@@ -12,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
 
 @Controller
-@RequestMapping("/operation")
 public class HomeController extends AbstractController {
 
     @Override
@@ -20,7 +19,7 @@ public class HomeController extends AbstractController {
         return null;
     }
 
-    @RequestMapping(value = "/home")
+    @RequestMapping(value = "/")
     public String home(Locale locale, Model model) {
         return "home";
     }
