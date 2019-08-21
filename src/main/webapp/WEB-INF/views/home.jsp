@@ -203,15 +203,15 @@
             <table>    
                 <tr>    
                     <td>Description:</td>    
-                    <td><input name="zkDescription" id="zkDescription" type="text" value=""></input></td>    
+                    <td><input name="zkDescription" id="zkDescription" type="text" value="test"></input></td>
                 </tr>    
                 <tr>    
                     <td>Zookeeper Address:</td>    
-                    <td><input name="zkConnectStr" id="zkConnectStr"  type="text" value=""></input></td>    
+                    <td><input name="zkConnectStr" id="zkConnectStr"  type="text" value="127.0.0.1:2181"></input></td>
                 </tr>    
                 <tr>    
                     <td>Session TimeOut:</td>    
-                    <td><input name="zkSessionTimeOut" id="zkSessionTimeOut"  type="text" value=""></input></td>    
+                    <td><input name="zkSessionTimeOut" id="zkSessionTimeOut"  type="text" value="3000"></input></td>
                 </tr>    
                 <tr>    
                     <td>用户:</td>    
@@ -249,7 +249,7 @@
                 </tr>    
                 <tr>    
                     <td>Session TimeOut:</td>    
-                    <td><input name="zkSessionTimeOut" id="zkSessionTimeOut" type="text"></input></td>    
+                    <td><input name="zkSessionTimeOut" id="zkSessionTimeOut" type="text" value="3000"></input></td>
                 </tr>    
                 <tr>    
                     <td>用户:</td>    
