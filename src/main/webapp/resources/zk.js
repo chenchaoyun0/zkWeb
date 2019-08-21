@@ -1,6 +1,7 @@
 var flag = false;
 $(function() {
 	initDataGrid();
+	hideUserAuth();
 	/* 判断select选择 */
 	$('#schemelist').change(function() {
 		var p1 = $(this).children('option:selected').val();// 这就是selected的值
@@ -527,12 +528,18 @@ function addzkACL() {
 		$.messager.alert('提示', '你必须选择一个配置');
 	}
 }
+
+/* 清空所有复选框 */
+function hideUserAuth() {
+	$("#userAuth").hide();
+}
+
 /* 清空所有复选框 */
 function removeAllCheck() {
 	$('#zkNodeName').val('');
 	$('#zkNoteData').val('');
-	$('#zkNoteUser').val('');
-	$('#zkNotePassword').val('');
+	/*$('#zkNoteUser').val('');
+	$('#zkNotePassword').val('');*/
 	$("input[name='perms']:checked").attr("checked", false);
 	$("#zkNodeNametip").html("*");
 	$("#zkNoteUsertip").html("*");

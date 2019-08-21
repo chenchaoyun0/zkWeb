@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,10 @@ public class ZkCfgController {
 
   @RequestMapping(value = "/addZkCfg", produces = "text/html;charset=UTF-8")
   public @ResponseBody String addZkCfg(ZkConfig zkConfig) {
+
+    if(StringUtils.isBlank(zkConfig.getZkUserName()) || StringUtils.isBlank(zkConfig.getZkUserPwd())){
+      return "用户名或者密码为空";
+    }
 
     try {
       String zkId = UUID.randomUUID().toString().replaceAll("-", "");

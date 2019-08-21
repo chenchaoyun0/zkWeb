@@ -1,5 +1,6 @@
 package com.sttx.zkweb.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,6 @@ import com.sttx.zkweb.service.ZkCfgManager;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * 
  * @ClassName: ZkCfgManagerImpl
  * @Description: zookeeper 配置实现类
  * @author: chenchaoyun0
@@ -28,7 +28,7 @@ public class ZkCfgManagerImpl implements ZkCfgManager {
   public void add(ZkConfig zkConfig) throws Exception {
     try {
       log.info("add zkConfig:{}" + zkConfig);
-      zkConfigMapper.insertSelective(zkConfig);
+      zkConfigMapper.insert(zkConfig);
     } catch (Exception e) {
       log.error("add zkCfg error : {}", e.getMessage(), e);
       throw new Exception("insert zkconfig exception");
@@ -38,7 +38,7 @@ public class ZkCfgManagerImpl implements ZkCfgManager {
   public List<ZkConfig> query() throws Exception {
     try {
       log.info("query List<ZkConfig>.");
-      return zkConfigMapper.selectAll();
+      return zkConfigMapper.selectList(null);
     } catch (Exception e) {
       log.error("queryzkCfg error : {}", e.getMessage(), e);
       throw new Exception("select zkconfig exception");
@@ -48,7 +48,9 @@ public class ZkCfgManagerImpl implements ZkCfgManager {
   public void update(ZkConfig zkConfig) throws Exception {
     try {
       log.info("update List<ZkConfig> : {}", zkConfig);
-      zkConfigMapper.updateByPrimaryKeySelective(zkConfig);
+      UpdateWrapper<ZkConfig> zkConfigUpdateWrapper = new UpdateWrapper<>();
+      zkConfigUpdateWrapper.eq("zk_Id", zkConfig.getZkId());
+      zkConfigMapper.update(zkConfig, zkConfigUpdateWrapper);
     } catch (Exception e) {
       log.error("update kCfg error : {}", e.getMessage(), e);
       throw new Exception("update zkconfig exception");
@@ -58,7 +60,7 @@ public class ZkCfgManagerImpl implements ZkCfgManager {
   public void delete(String zkId) throws Exception {
     try {
       log.info("delete ZkConfig by zkId : {}", zkId);
-      zkConfigMapper.deleteByPrimaryKey(zkId);
+      zkConfigMapper.deleteById(zkId);
     } catch (Exception e) {
       log.error("delete id={} zkCfg error : {}", zkId, e.getMessage(), e);
       throw new Exception("delete zkconfig exception");
@@ -68,7 +70,7 @@ public class ZkCfgManagerImpl implements ZkCfgManager {
   public ZkConfig findById(String zkId) throws Exception {
     try {
       log.info("find ZkConfig by zkId : {}", zkId);
-      ZkConfig zkConfig = zkConfigMapper.selectByPrimaryKey(zkId);
+      ZkConfig zkConfig = zkConfigMapper.selectById(zkId);
       return zkConfig;
     } catch (Exception e) {
       log.error("findById id={} zkCfg error : {}", zkId, e.getMessage(), e);
@@ -79,7 +81,7 @@ public class ZkCfgManagerImpl implements ZkCfgManager {
   public List<ZkConfig> query(int page, int rows) throws Exception {
     try {
       log.info("query ZkConfig pages : {},{}", page, rows);
-      return zkConfigMapper.selectAll();
+      return zkConfigMapper.selectList(null);
     } catch (Exception e) {
       log.error("query ZkConfig pages error : {}", e.getMessage(), e);
       throw new Exception("SELECT page zkconfig exception");
@@ -89,7 +91,7 @@ public class ZkCfgManagerImpl implements ZkCfgManager {
   public int count() throws Exception {
     try {
       log.info("query ZkConfig count : {}");
-      return zkConfigMapper.selectAll().size();
+      return zkConfigMapper.selectCount(null);
     } catch (Exception e) {
       log.error("count id={} zkCfg error : {}", e.getMessage(), e);
       throw new Exception("SELECT page zkconfig exception");

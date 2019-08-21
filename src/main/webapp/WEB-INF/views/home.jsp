@@ -110,7 +110,7 @@
     </div>
     
     <!-- add -->
-    <div id="w" class="easyui-window" title="添加节点" data-options="iconCls:'icon-add',modal:true,closed:true,maximizable:false" style="width:500px;padding:10px;">  
+    <div id="w" class="easyui-window" title="添加节点" data-options="iconCls:'icon-add',modal:true,closed:true,maximizable:false" style="width:500px;padding:10px;">
         
         <div style="text-align:left;padding:5px">
             输入节点名称:
@@ -123,18 +123,18 @@
         <div style="text-align:left;padding:5px">
             请选择scheme:  
                  <select id="schemelist">
-                    <option value="digest" id="digest" name="digest">digest</option>
-                    <option value="world" id="world" name="world">world</option>
+                     <option value="world" id="world" name="world">world</option>
+                     <option value="digest" id="digest" name="digest">digest</option>
                 </select>
         </div>
         <div id="userAuth">
             <div style="text-align:left;padding:5px">
                       设置节点用户:
-                        <input id="zkNoteUser"  type="text" value="" data-options="required:true,tipPosition:'right'"></input>&nbsp;<span style="color: red" id="zkNoteUsertip">*</span>  
+                        <input id="zkNoteUser"  type="text" value="root" data-options="required:true,tipPosition:'right'"></input>&nbsp;<span style="color: red" id="zkNoteUsertip">*</span>
             </div>
             <div style="text-align:left;padding:5px">
                       设置用户密码:
-                        <input id="zkNotePassword"  type="text" value="" data-options="required:true,tipPosition:'right'"></input>&nbsp;<span style="color: red" id="zkNotePasswordtip">*</span>
+                        <input id="zkNotePassword"  type="text" value="root" data-options="required:true,tipPosition:'right'"></input>&nbsp;<span style="color: red" id="zkNotePasswordtip">*</span>
             </div>
         </div>
         <div style="text-align:left;padding:5px">
@@ -158,8 +158,8 @@
         <div style="text-align:left;padding:5px">
             请选择scheme:  
                  <select id="schemelistACL">
-                    <option value="digest" id="digestACL" name="digestACL">digest</option>
-                    <option value="world" id="worldACL" name="worldACL">world</option>
+                     <option value="world" id="worldACL" name="worldACL">world</option>
+                     <option value="digest" id="digestACL" name="digestACL">digest</option>
                 </select>
         </div>
         <div id="userAuthACL">
@@ -215,11 +215,11 @@
                 </tr>    
                 <tr>    
                     <td>用户:</td>    
-                    <td><input name="zkUserName" id="zkUserName" type="text" value=""></input></td>    
+                    <td><input name="zkUserName" id="zkUserName" type="text" value="root"></input></td>
                 </tr>    
                 <tr>    
                     <td>密码:</td>    
-                    <td><input name="zkUserPwd" id="zkUserPwd" type="password" value=""></input></td>    
+                    <td><input name="zkUserPwd" id="zkUserPwd" type="text" value="root"></input></td>
                 </tr>    
                 <tr>    
                     <td>
@@ -253,11 +253,11 @@
                 </tr>    
                 <tr>    
                     <td>用户:</td>    
-                    <td><input name="zkUserName" id="zkUserName" type="text"></input></td>    
+                    <td><input name="zkUserName" id="zkUserName" type="text" value="root"></input></td>
                 </tr>    
                 <tr>    
                     <td>密码:</td>    
-                    <td><input name="zkUserPwd" id="zkUserPwd"  type="password"></input></td>    
+                    <td><input name="zkUserPwd" id="zkUserPwd"  type="text" value="root"></input></td>
                 </tr> 
                 <tr>    
                     <td>

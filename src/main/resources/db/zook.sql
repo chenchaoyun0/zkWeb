@@ -18,8 +18,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Table structure for t_zkconfig
 -- ----------------------------
-DROP TABLE IF EXISTS `t_zkconfig`;
-CREATE TABLE `t_zkconfig` (
+CREATE TABLE IF NOT EXISTS `t_zkconfig` (
   `zk_id` varchar(200) NOT NULL,
   `zk_description` varchar(100) DEFAULT NULL,
   `zk_connect_str` varchar(100) DEFAULT NULL,

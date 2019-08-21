@@ -91,8 +91,8 @@ function login(){
 		   </div>
 		   
 		   <div class = "inputMessage">
-	           <input id = "name" type = "text"><br>
-	           <input id = "password" type = "password">
+	           <input id = "name" type = "text" value="root"><br>
+	           <input id = "password" type = "text" value="root">
 	       </div>
 	       
 	       <div class = "loginNotice">

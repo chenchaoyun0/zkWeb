@@ -1,5 +1,6 @@
 package com.sttx.zkweb;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -15,7 +16,6 @@ import com.sttx.zkweb.util.SpringUtils;
 import com.sttx.zkweb.util.ZkCache;
 
 import lombok.extern.slf4j.Slf4j;
-import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
 @ServletComponentScan

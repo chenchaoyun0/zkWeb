@@ -1,35 +1,51 @@
-# maven ignore
-target/
+# intellij
+.idea
+*.iml
+
+
+# eclipse
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+
+# log files
+*.log
+
+
+# package files
 *.jar
 *.war
+*.ear
 *.zip
-*.tar
 *.tar.gz
+*.rar
 
-# eclipse ignore
-.settings/
-.project
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+
+target/
+*.class
+
 .classpath
-
-# idea ignore
-.idea/
-*.ipr
-*.iml
-*.iws
-
-# temp ignore
-logs/
-*.log
-*.cache
-*.diff
-*.patch
-*.tmp
-cache/
-
-# system ignore
-.DS_Store
-Thumbs.db
-
-# pmd
-*.pmd
-/bin/
+.project
+.springBeans
+**/logs/
