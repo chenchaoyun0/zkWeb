@@ -1,5 +1,9 @@
 package com.sttx.zkweb;
 
+import com.alibaba.fastjson.JSON;
+import com.sttx.zkweb.config.BootConfig;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,13 +20,14 @@ import com.sttx.zkweb.util.SpringUtils;
 import com.sttx.zkweb.util.ZkCache;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.env.Environment;
 
 @SpringBootApplication
 @ServletComponentScan
 @MapperScan("com.sttx.zkweb.mapper")
 @Slf4j
 public class ZkWebApplication extends SpringBootServletInitializer
-  implements ApplicationListener<ContextRefreshedEvent> {
+    implements ApplicationListener<ContextRefreshedEvent> {
 
   @Override
   protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
@@ -41,9 +46,9 @@ public class ZkWebApplication extends SpringBootServletInitializer
       ZkCfgManager zkCfgManager = SpringUtils.getBean(ZkCfgManager.class);
       for (ZkConfig zkConfig : zkCfgManager.query()) {
         log.info("ID : {},CONNECTSTR : {},SESSIONTIMEOUT : {}",
-          new Object[] {zkConfig.getZkId(), zkConfig.getZkConnectStr(), zkConfig.getZkSessionTimeOut()});
+            new Object[]{zkConfig.getZkId(), zkConfig.getZkConnectStr(), zkConfig.getZkSessionTimeOut()});
         ZkManagerImpl zk = new ZkManagerImpl(zkConfig.getZkConnectStr(),
-          Integer.parseInt(zkConfig.getZkSessionTimeOut()), zkConfig.getZkUserName(), zkConfig.getZkUserPwd());
+            Integer.parseInt(zkConfig.getZkSessionTimeOut()), zkConfig.getZkUserName(), zkConfig.getZkUserPwd());
         ZkCache.put(zkConfig.getZkId(), zk);
       }
     } catch (NumberFormatException e) {
@@ -54,6 +59,32 @@ public class ZkWebApplication extends SpringBootServletInitializer
 
     for (String key : ZkCache.getZkCache().keySet()) {
       log.info("key : {} , zk : {}", key, ZkCache.get(key));
+    }
+
+    try {
+      BootConfig bootConfig = SpringUtils.getBean(BootConfig.class);
+      log.info("输入配置:{}", JSON.toJSONString(bootConfig));
+      Environment env = SpringUtils.getBean(Environment.class);
+      String protocol = "http";
+      if (env.getProperty("server.ssl.key-store") != null) {
+        protocol = "https";
+      }
+      log.info(
+          "\n---------------------------------------------------------------------------------------\n\t"
+              +
+              "Application '{}' is running! Access URLs:\n\t" +
+              "Local: \t\t{}://{}:{}/zkWeb\n\t" +
+              "External: \t{}://{}:{}/zkWeb/h2\n\t" +
+              "\n---------------------------------------------------------------------------------------",
+          env.getProperty("spring.application.name"),
+          protocol,
+          InetAddress.getLocalHost().getHostAddress(),
+          env.getProperty("server.port"),
+          protocol,
+          InetAddress.getLocalHost().getHostAddress(),
+          env.getProperty("server.port"));
+    } catch (UnknownHostException e) {
+      e.printStackTrace();
     }
   }
 

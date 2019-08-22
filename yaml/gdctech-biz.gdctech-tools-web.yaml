@@ -1,0 +1,23 @@
+svcname: gdctech-zkweb
+category: gdctech-biz
+instances:
+  gdctech-tools-web:
+    hostname: security-159
+    rank: 10
+    docker:
+      image: ampregistry:5000/sng-biz-zkweb:master-1.0.1908221002-cdf86f82-beta
+      kind: daemon
+      net: host
+      log_max_gigabytes: 1
+      envs:
+      - TZ=Asia/Shanghai
+      volumes:
+      - /mnt/data/zkWeb/logs:/opt/project/logs
+      - /mnt/data/zkWeb/db:/u01/app/db
+      stop_wait_secs: "30"
+      start_retries: "20"
+      start_secs: "5"
+    health_check:
+      protocol: tcp
+      port: "23335"
+rank: 10

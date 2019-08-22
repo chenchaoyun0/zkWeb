@@ -1,0 +1,40 @@
+variables:
+  SOFT_VERSION: '1.0'
+  SOFT_VERSION_EXT: 'beta'
+  PRO_SHORT: 'assistant'
+  CI_PROJECT_NAME: 'zkweb'
+
+before_script:
+  - pwd
+after_script:
+#  - sudo rm -rf ${CI_PROJECT_DIR}/target
+
+stages:
+  - java-package
+  - docker-push
+
+#java编译
+java-package:
+  stage: java-package
+  script:
+    - /home/gitlab-runner/shell/dockerbuild.sh ${CI_PROJECT_DIR} ${CI_PROJECT_NAME} ${CI_COMMIT_SHA} ${SOFT_VERSION} ${SOFT_VERSION_EXT}
+  tags:
+    - chency-70
+  only:
+    - triggers
+    - master
+    - dev
+
+#push镜像
+docker-push:
+  stage: docker-push
+  script:
+    - /home/gitlab-runner/shell/dockerpush.sh ${CI_COMMIT_SHA}
+  tags:
+    - chency-70
+  only:
+    - triggers
+    - master
+    - dev
+
+#curl -X POST -F token=17366b3c98b0c67f5073122597a873 -F ref=master https://git-pd.megvii-inc.com/api/v4/projects/5627/trigger/pipeline

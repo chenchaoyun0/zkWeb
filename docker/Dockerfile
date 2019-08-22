@@ -6,6 +6,6 @@ VOLUME /u01/app/db
 
 WORKDIR /u01/app
 
-COPY zkWeb/zkWeb.war /u01/app/zk-web.war
+ADD zkweb/zkWeb.war /u01/app
 
-CMD ["java", "-jar", "zk-web.war"]
+CMD ["java", "-jar", "zkWeb.war"]

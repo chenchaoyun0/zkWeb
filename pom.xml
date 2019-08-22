@@ -208,6 +208,13 @@
       <artifactId>commons-lang3</artifactId>
       <version>${commons.lang.version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.59</version>
+    </dependency>
+
   </dependencies>
 
   <build>
